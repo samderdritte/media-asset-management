@@ -1,0 +1,7 @@
+.DS_Store
+
+# environment variables
+.env
+
+# node
+
