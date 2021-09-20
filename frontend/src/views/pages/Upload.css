@@ -1,0 +1,27 @@
+.dropzoneText {
+    border: 1px dashed lightgray;
+    text-align: center;
+    height: 4rem;
+    padding: 1.2rem;
+}
+
+
+.dropzone p:hover {
+   border: 1px dashed black;
+}
+
+.file-list >ul {
+    padding: 0;
+}
+
+.file-list >li {
+    list-style-type: none;
+}
+
+.file-remove {
+    color:#ef8157;
+}
+
+.file-remove :hover {
+    cursor: pointer;
+}

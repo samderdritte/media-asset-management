@@ -4,4 +4,7 @@
 .env
 
 # node
+node_modules
+build
+npm-debug.log
 
