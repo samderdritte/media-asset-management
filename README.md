@@ -1,1 +1,1 @@
-# media-asset-managment
+# Media Asset Management
