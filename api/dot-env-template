@@ -1,0 +1,19 @@
+# fill the needed environment variables and rename this file to .env
+
+# B2 Storage
+B2_KEY_ID=
+B2_APPLICATION_KEY=
+B2_KEY_NAME=
+B2_BUCKET_ID=
+
+# MongoDB
+MONGO_DB_URI=
+
+# JWT 
+JWT_SECRET=
+
+# Smtp Email Service
+SMTP_FROM=
+SMTP_PASSWORD=
+SMTP_HOST=
+SMTP_PORT=
