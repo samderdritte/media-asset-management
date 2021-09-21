@@ -811,7 +811,7 @@ func CreateUser(ctx echo.Context) error {
 	ProjectRootPath := filepath.Join(filepath.Dir(b), "../../")
 	templateFile := ProjectRootPath + "/cmd/backend/template_create_user.html"
 	subject := "User created for for Media Hub"
-	url := "http://localhost:3001/admin/users/password-change/?token="
+	url := "http://localhost:3001/admin/password-change/?token="
 	jwtToken := token
 	link := url + jwtToken
 
@@ -950,7 +950,7 @@ func UserPasswordReset(ctx echo.Context) error {
 
 	templateFile := ProjectRootPath + "/cmd/backend/template_email_reset.html"
 	subject := "Password reset for Media Hub"
-	url := "http://localhost:3001/admin/users/password-change/?token="
+	url := "http://localhost:3001/admin/password-change/?token="
 	jwtToken := token
 	link := url + jwtToken
 
