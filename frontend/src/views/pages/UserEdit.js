@@ -119,8 +119,8 @@ class UserEdit extends React.Component {
     this.refs.notificationAlert.notificationAlert(options);
   };
 
-  change = (event, stateName) => {
-    this.setState({ [stateName]: event.target.value });   
+  change = (event, stateName) => { 
+    this.setState({ [stateName]: event.target.value }, () => {console.log(this.state)});
   };
 
   updateClick = async () => {
@@ -292,7 +292,7 @@ class UserEdit extends React.Component {
                               defaultValue={this.state.name}
                               placeholder="First Name"
                               type="text"
-                              onChange={(e) => this.change(e, "name")}
+                              onblur={(e) => this.change(e, "name")}
                             />
                           </FormGroup>
                         </Col>
@@ -303,7 +303,7 @@ class UserEdit extends React.Component {
                               defaultValue={this.state.surname}
                               placeholder="Last Name"
                               type="text"
-                              onChange={(e) => this.change(e, "surname")}
+                              onblur={(e) => this.change(e, "surname")}
                             />
                           </FormGroup>
                         </Col>
@@ -315,7 +315,7 @@ class UserEdit extends React.Component {
                             <Input
                               defaultValue={this.state.address}
                               type="text"
-                              onChange={(e) => this.change(e, "address")}
+                              onblur={(e) => this.change(e, "address")}
                             />
                           </FormGroup>
                         </Col>

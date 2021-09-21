@@ -69,21 +69,6 @@ class Sidebar extends React.Component {
     //console.log(axios.defaults.headers);
   };
 
-  loginUser = async () => {
-    const email = 'samuel.spycher@me.com';
-    const password = 'FOLKSY-budget-7-aromatic-keyboard'
-    const postData = { email, password};
-    try {
-      const { data } = await axios.post(`${apiUrl}/api/users/login`, postData);
-      //localStorage.setItem('JWTCookie', data.Token);
-      //setJwt(data.Token);
-      this.getCurrentUser();
-      console.log("jwt fetched", data)
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   // this creates the intial state of this component based on the collapse routes
   // that it gets through this.props.routes
   getCollapseStates = (routes) => {
@@ -243,7 +228,7 @@ class Sidebar extends React.Component {
                   }
                 >
                   <span>
-                    {this.context.user.name} {this.context.user.surname}
+                    {this.context.user.name !== '' || this.context.user.surname !== '' ? this.context.user.name : 'Account'} {this.context.user.surname}
                     <b className="caret" />
                   </span>
                 </a>

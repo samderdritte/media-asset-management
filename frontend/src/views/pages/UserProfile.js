@@ -117,7 +117,7 @@ class UserProfile extends React.Component {
   };
 
   change = (event, stateName) => {
-    this.setState({ [stateName]: event.target.value });   
+    this.setState({ [stateName]: event.target.value }, () => {console.log(this.state)});   
   };
 
   updateClick = async () => {
