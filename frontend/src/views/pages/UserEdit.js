@@ -292,7 +292,7 @@ class UserEdit extends React.Component {
                               defaultValue={this.state.name}
                               placeholder="First Name"
                               type="text"
-                              onblur={(e) => this.change(e, "name")}
+                              onChange={(e) => this.change(e, "name")}
                             />
                           </FormGroup>
                         </Col>
@@ -303,7 +303,7 @@ class UserEdit extends React.Component {
                               defaultValue={this.state.surname}
                               placeholder="Last Name"
                               type="text"
-                              onblur={(e) => this.change(e, "surname")}
+                              onChange={(e) => this.change(e, "surname")}
                             />
                           </FormGroup>
                         </Col>
@@ -315,7 +315,7 @@ class UserEdit extends React.Component {
                             <Input
                               defaultValue={this.state.address}
                               type="text"
-                              onblur={(e) => this.change(e, "address")}
+                              onChange={(e) => this.change(e, "address")}
                             />
                           </FormGroup>
                         </Col>

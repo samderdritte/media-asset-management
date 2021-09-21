@@ -100,10 +100,19 @@ class Sidebar extends React.Component {
   }
   // this function creates the links and collapses that appear in the sidebar (left menu)
   createLinks = (routes) => {
+    
     return routes.map((prop, key) => {
+      if (prop.displayFor && !this.state.user) {
+        return null;
+      }
+      if (prop.displayFor && this.state.user && !prop.displayFor.includes(this.state.user.role)){
+        return null;
+      }
+      
       if (prop.invisible) {
         return null;
       }
+      
       if (prop.redirect) {
         return null;
       }
@@ -284,6 +293,7 @@ class Sidebar extends React.Component {
           }
           
           <Nav>{this.createLinks(this.props.routes)}</Nav>
+          
         </div>
       </div>
     );

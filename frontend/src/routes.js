@@ -58,6 +58,7 @@ const routes = [
     layout: "/admin",
   },
   {
+    displayFor: ['admin', 'manager', 'editor'],
     path: "/upload",
     name: "File Upload",
     icon: "nc-icon nc-cloud-upload-94",
