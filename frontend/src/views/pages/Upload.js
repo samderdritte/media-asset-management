@@ -110,11 +110,11 @@ class Upload extends React.Component {
     console.log("filePrefix", filePrefix);
     if (filePrefix === "video") {
       this.setState({fileIsVideo: true});
-      fileInfo.fileIsDocument = true;
+      fileInfo.fileIsVideo = true;
     }
     if (filePrefix === "audio") {
       this.setState({fileIsAudio: true});
-      fileInfo.fileIsVideo = true;
+      fileInfo.fileIsAudio = true;
     }
     if (filePrefix === "image") {
       this.setState({fileIsImage: true});
@@ -296,10 +296,16 @@ class Upload extends React.Component {
 
     // Check if the file still exists, to make sure that
     // the metadata is stored in the DB only once
+
+    let resp = response
+    // the B2 API will return a JSON String for the basic upload so we need to convert to object
+    if (typeof(response) == 'string'){
+      response = JSON.parse(response)
+    }
     if(file) {     
       const bodyData = {};
       bodyData.b2fileId = response.fileId;
-      bodyData.b2fileName = response.fileName;
+      bodyData.b2fileName = response["fileName"];
       bodyData.b2ContentType = response.contentType;
       bodyData.b2FileSize = response.contentLength;
       bodyData.metadata = file.fileInfo.meta;
@@ -803,8 +809,7 @@ class Upload extends React.Component {
               <Button 
                 //disabled={this.state.b2AuthorizationToken === null}
                 color="primary" 
-                onClick={this.uploadFilesClick
-                }>
+                onClick={this.uploadFilesClick}>
                 Upload
               </Button>
             </CardFooter>
