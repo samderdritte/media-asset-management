@@ -298,7 +298,7 @@ class Upload extends React.Component {
     // the metadata is stored in the DB only once
 
     let resp = response
-    // the B2 API will return a JSON String for the basic upload so we need to convert to object
+    // the B2 API will return a JSON String for the basic upload so we need to convert to object  
     if (typeof(response) == 'string'){
       response = JSON.parse(response)
     }
@@ -308,9 +308,9 @@ class Upload extends React.Component {
       bodyData.b2fileName = response["fileName"];
       bodyData.b2ContentType = response.contentType;
       bodyData.b2FileSize = response.contentLength;
-      bodyData.metadata = file.fileInfo.meta;
       bodyData.lastModifiedDate = file.file.lastModifiedDate;
-      bodyData.fileInfo = this.state.form;
+      bodyData.fileInfo = file.fileInfo;
+      bodyData.filterData = this.state.form;
       console.log("bodyData", bodyData)
       try {
         const { data } = await axios.post('/api/secure/media/db/upload/', bodyData);
